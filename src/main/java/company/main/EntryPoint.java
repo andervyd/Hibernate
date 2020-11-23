@@ -5,7 +5,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import java.io.File;
 
 public class EntryPoint {
     public static void main(String[] args) {
@@ -17,7 +16,7 @@ public class EntryPoint {
             Session session = factory.getCurrentSession();
 
             Employee employee = new Employee(
-                    "Ivan", "Tara", "MANAGER", 2300);
+                    "Mary", "Snow", "MANAGER", 2500);
 
             session.beginTransaction();
 

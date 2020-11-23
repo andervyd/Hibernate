@@ -8,26 +8,17 @@
     <groupId>by.andervyd</groupId>
     <artifactId>Hibernate</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>7</source>
-                    <target>7</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
 
     <properties>
 
         <hibernate-core.version>5.4.21.Final</hibernate-core.version>
         <hibernate-commons-annotations.version>5.1.0.Final</hibernate-commons-annotations.version>
+
         <mysql-connector-java.version>8.0.21</mysql-connector-java.version>
-        <log4j.version>1.2.17</log4j.version>
+
+        <log4j-core.version>2.12.1</log4j-core.version>
+        <log4j-api.version>2.12.1</log4j-api.version>
 
     </properties>
 
@@ -53,12 +44,36 @@
         </dependency>
 
         <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>${log4j.version}</version>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j-core.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j-api.version}</version>
         </dependency>
 
     </dependencies>
 
+
+    <build>
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
+
+            </plugin>
+
+        </plugins>
+
+    </build>
 
 </project>
