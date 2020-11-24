@@ -16,13 +16,15 @@ public class EntryPoint {
             Session session = factory.getCurrentSession();
 
             Employee employee = new Employee(
-                    "Mary", "Snow", "MANAGER", 2500);
+                    "Oleg", "Crew", "HR", 1900);
 
             session.beginTransaction();
 
             session.save(employee);
 
             session.getTransaction().commit();
+
+            System.out.println("Done");
         }
     }
 }
