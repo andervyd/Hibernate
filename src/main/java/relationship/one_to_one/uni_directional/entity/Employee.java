@@ -1,15 +1,10 @@
-package company.entity;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+package relationship.one_to_one.uni_directional.entity;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "employees")
+@Table(name = "re_employees")
 public class Employee {
-
-    // TODO : create employees for table 'employees'
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +22,10 @@ public class Employee {
 
     @Column(name = "salary")
     private double salary;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "details_id")
+    private Detail employeeDetail;
 
     public Employee() {
         // default
@@ -77,6 +76,14 @@ public class Employee {
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    public Detail getEmployeeDetail() {
+        return employeeDetail;
+    }
+
+    public void setEmployeeDetail(Detail employeeDetail) {
+        this.employeeDetail = employeeDetail;
     }
 
     public String toString() {

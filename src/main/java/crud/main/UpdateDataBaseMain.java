@@ -1,11 +1,11 @@
-package company.main;
+package crud.main;
 
-import company.entity.Employee;
+import crud.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class DeleteEmployeeByDataBase {
+public class UpdateDataBaseMain {
     public static void main(String[] args) {
 
         try (SessionFactory factory = new Configuration().configure("hibernate.cfg.xml")
@@ -14,20 +14,16 @@ public class DeleteEmployeeByDataBase {
             Session session = factory.getCurrentSession();
             session.beginTransaction();
 
-
 /*
-            // search eployee by id
-            Employee getEmployees = session.get(Employee.class, 1);
-            // delete employee
-            session.delete(getEmployees);
-
-            // short version
-            session.delete(session.get(Employee.class, 1));
+            // change salary by employee = id 1
+            Employee idEmployee = session.get(Employee.class, 1);
+            idEmployee.setSalary(2800);
 */
 
-            // delete employe with HQL
+            // change salary for name
             session.createQuery(
-                    "DELETE Employee WHERE name = 'Oleg'").executeUpdate();
+                    "UPDATE Employee SET salary = 2300 WHERE name = 'Oleg'").executeUpdate();
+
 
             session.getTransaction().commit();
             System.out.println("Done");

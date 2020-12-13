@@ -1,6 +1,6 @@
-package company.main;
+package crud.main;
 
-import company.entity.Employee;
+import crud.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
