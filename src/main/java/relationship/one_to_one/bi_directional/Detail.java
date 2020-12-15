@@ -20,7 +20,9 @@ public class Detail {
     @Column(name = "email")
     private String email;
 
-    @OneToOne(mappedBy = "employeeDetail")
+    @OneToOne(mappedBy = "employeeDetail",
+                cascade = {CascadeType.PERSIST, CascadeType.REFRESH} ) // reconnect employee <=> detail
+//              cascade = CascadeType.ALL)
     private Employee employee;
 
     public Detail() {
@@ -75,7 +77,7 @@ public class Detail {
 
     @Override
     public String toString() {
-        return "Detail [ id: " + id +
+        return "Detail   [ id: " + id +
                 ", city: " + city +
                 ", phone: " + phoneNumber +
                 ", email: " + email + " ]";
