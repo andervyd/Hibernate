@@ -1,0 +1,8 @@
+     TYPE          LOADING(default)
+@One-To-One     =      Eager
+@One-To-Many    =      Lazy
+@Many-To-One    =      Eager
+@Many-To-Many   =      Lazy
+
+@... (        ...
+      fetch = FetchType.____)
